@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Alert, Button, Image, View, Text, TextInput,Platform } from 'react-native';
+import { Alert, Button, Image, View, Text, TextInput, Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Ipcim from './Ipcim';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function ImagePickerExample() {
   const [bevitel2, setBevitel2] = useState('');
@@ -30,15 +32,17 @@ export default function ImagePickerExample() {
         Alert.alert('Please select an image first');
         return;
       }
-  
+
+      const felhasznaloId = await AsyncStorage.getItem('felhasznaloId');
+
       const response = await fetch(`${SERVER_URL}/api/upload3`, {
         method: 'POST',
-        body: createFormData(image, { bevitel2 }),
+        body: createFormData(image, { bevitel2, felhasznaloId }),
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-  
+
       if (!response.ok) {
         throw new Error('Network request failed');
       }
