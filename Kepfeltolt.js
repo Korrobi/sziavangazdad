@@ -4,6 +4,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { Picker } from '@react-native-picker/picker';
 import Ipcim from './Ipcim';
 import { Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function Kepfeltolt() {
@@ -56,13 +57,19 @@ const getMovies = async () => {
         formData.append('bevitel2', bevitel2);
         formData.append('selectedLanguage', selectedLanguage);
         formData.append('selectedAlfaj', selectedAlfaj);
-
+  
+        // Retrieve felhasznaloId from AsyncStorage
+        const felhasznaloId = await AsyncStorage.getItem('felhasznaloId');
+        // Append felhasznaloId to the request headers
+        const headers = {
+          'Content-Type': 'multipart/form-data',
+          'felhasznaloId': felhasznaloId,
+        };
+  
         fetch(`${SERVER_URL}/api/upload2`, {
           method: 'POST',
           body: formData,
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+          headers: headers,
         })
           .then(response => response.json())
           .then(jsonData => {
@@ -81,6 +88,7 @@ const getMovies = async () => {
       console.error('Error picking/uploading image:', error);
     }
   };
+  
   return (
     <KeyboardAvoidingView
     behavior={Platform.OS === 'ios' ? 'padding' : 'height'}

@@ -41,7 +41,9 @@ const LoginScreen = ({ setAuthenticated }) => {
       
 
       console.log('Successful login', response.data);
-
+      const felhasznaloId = response.data.felhasznaloId;
+      await AsyncStorage.setItem('felhasznaloId', felhasznaloId);
+      
       AsyncStorage.setItem('rememberMe', JSON.stringify(rememberMe));
 
       const userToken = response.data.token;

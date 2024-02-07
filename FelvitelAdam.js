@@ -16,7 +16,7 @@ export default function ImagePickerExample() {
 
   const getMovies = async () => {
     try {
-      const response = await fetch(Ipcim.Ipcim+'lenyilolista');
+      const response = await fetch(Ipcim.Ipcim+'/lenyilolista');
       const json = await response.json();
       setData(json);
     } catch (error) {
@@ -96,7 +96,7 @@ export default function ImagePickerExample() {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     
     <Text style={{padding: 10}}>
-      Név:
+      Nï¿½v:
       </Text>
       <TextInput
         style={{height: 40,width:250, margin:5, backgroundColor:"cyan"}}
@@ -113,7 +113,7 @@ export default function ImagePickerExample() {
       />
       
       <Text style={{padding: 10}}>
-      Telefonszám:
+      Telefonszï¿½m:
       </Text>
       <TextInput
         style={{height: 40,width:250, margin:5, backgroundColor:"cyan"}}
@@ -122,7 +122,7 @@ export default function ImagePickerExample() {
       />
       
       <Text style={{padding: 10}}>
-      Cím:
+      Cï¿½m:
       </Text>
       <TextInput
         style={{height: 40,width:250, margin:5, backgroundColor:"cyan"}}
@@ -152,8 +152,8 @@ export default function ImagePickerExample() {
       </Picker>
       </View>
 
-      <Button title="Kép feltöltés" onPress={handleUploadPhoto} />
-      <Button title="Képválasztás" onPress={pickImage} />
+      <Button title="Kï¿½p feltï¿½ltï¿½s" onPress={handleUploadPhoto} />
+      <Button title="Kï¿½pvï¿½lasztï¿½s" onPress={pickImage} />
       {image && <Image source={{ uri: image.uri }} style={{ width: 300, height: 300 }} />}
 
     </View>
