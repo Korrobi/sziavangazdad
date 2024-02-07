@@ -29,23 +29,38 @@ const Orokbefogadasfelulet = ({ route, navigation }) => {
   };
 
   const kattintas = async () => {
+    var adatok2 = {
+      "atkuld21": atkuld21,
+      "atkuld22": atkuld22
+    };
     try {
-      var adatok2 = {
-        "atkuld21": atkuld21,
-        "atkuld22": atkuld22
-      };
-
-      const response = await fetch(Ipcim.Ipcim + 'orokbefelvitel', {
+     
+      const response = await fetch(Ipcim.Ipcim + '/orokbefelvitel', {
         method: "POST",
         body: JSON.stringify(adatok2),
         headers: { "Content-type": "application/json; charset=UTF-8" }
       });
 
-      const result = await response.json();
-      console.log(result);
-      // Kezeld itt a vï¿½laszt, ha szï¿½ksï¿½ges
+      const result = await response.text();
+      try {
+     
+        const response2 = await fetch(Ipcim.Ipcim + '/orokbefelvitelupdate', {
+          method: "POST",
+          body: JSON.stringify(adatok2),
+          headers: { "Content-type": "application/json; charset=UTF-8" }
+        });
+  
+        const result2 = await response2.text();
+        
+        //console.log(result);
+        // Kezeld itt a v?laszt, ha sz?ks?ges
+      } catch (error) {
+        console.error('Hiba t?rt?nt az ?r?kbefogad?s sor?n:', error);
+      }
+      //console.log(result);
+      // Kezeld itt a v?laszt, ha sz?ks?ges
     } catch (error) {
-      console.error('Hiba tï¿½rtï¿½nt az ï¿½rï¿½kbefogadï¿½s sorï¿½n:', error);
+      console.error('Hiba t?rt?nt az ?r?kbefogad?s sor?n:', error);
     }
   };
 
@@ -86,7 +101,7 @@ const Orokbefogadasfelulet = ({ route, navigation }) => {
           )}
         />
       )}
-      <Button onPress={kattintas} title="ï¿½rï¿½kbefogadom!" />
+      <Button onPress={kattintas} title="õrökbefogadom!" />
     </View>
   );
 };
