@@ -88,7 +88,7 @@ export default function App() {
           initialParams={{ setAuthenticated }}
         />
         <Stack.Screen
-          name="Register"
+          name="Regisztráció"
           component={RegisterScreen}
           initialParams={{ setAuthenticated }}
         />
