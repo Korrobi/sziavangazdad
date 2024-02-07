@@ -6,7 +6,6 @@ import Ipcim from './Ipcim';
 import { Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 export default function Kepfeltolt() {
   const [bevitel1, setBevitel1] = useState('');
   const [bevitel2, setBevitel2] = useState('');
@@ -60,16 +59,19 @@ const getMovies = async () => {
   
         // Retrieve felhasznaloId from AsyncStorage
         const felhasznaloId = await AsyncStorage.getItem('felhasznaloId');
+        console.log('felhasznaloId:', felhasznaloId);
+  
         // Append felhasznaloId to the request headers
-        const headers = {
-          'Content-Type': 'multipart/form-data',
-          'felhasznaloId': felhasznaloId,
-        };
+        formData.append('felhasznaloId', felhasznaloId); // Append felhasznaloId to the formData
+  
+        console.log('formData:', formData); // Log the formData object with appended felhasznaloId
   
         fetch(`${SERVER_URL}/api/upload2`, {
           method: 'POST',
           body: formData,
-          headers: headers,
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
         })
           .then(response => response.json())
           .then(jsonData => {
