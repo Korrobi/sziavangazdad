@@ -44,7 +44,7 @@ function Root({ route, navigation }) {
       {isAuthenticated ? (
         <>
           <Drawer.Screen name="Home" component={HomeScreen} />
-          <Drawer.Screen name="Kepfeltolt" component={Kepfeltolt} />
+          <Drawer.Screen name="Állat örökbeadása" component={Kepfeltolt} />
           <Drawer.Screen name="Elveszett Jelentés" component={Felvitel} />
           <Drawer.Screen name="Elveszett" component={Proba2} />
           {/*Ádám*/}

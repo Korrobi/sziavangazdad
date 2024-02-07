@@ -17,7 +17,7 @@ const App = () => {
       setLoading(false);
     }
   };
-
+  
   useEffect(() => {
     getAnimals();
   }, []);
