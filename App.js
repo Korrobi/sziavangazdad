@@ -10,7 +10,8 @@ import LoginScreen from './login';
 import RegisterScreen from './regist';
 import Logout from './Logout';
 import Video from './Video';
-import Proba2 from './Proba2'
+import Proba2 from './elveszett'
+import AllatokLista from './allatoklista'
 //ádám
 import FelvitelAdam from "./FelvitelAdam";
 import Getesorokbefogadas from "./Getesorokbefogadas";
@@ -44,6 +45,7 @@ function Root({ route, navigation }) {
       {isAuthenticated ? (
         <>
           <Drawer.Screen name="Home" component={HomeScreen} />
+          <Drawer.Screen name="Állatok Lista" component={AllatokLista} />
           <Drawer.Screen name="Állat örökbeadása" component={Kepfeltolt} />
           <Drawer.Screen name="Elveszett Jelentés" component={Felvitel} />
           <Drawer.Screen name="Elveszett" component={Proba2} />
@@ -64,7 +66,6 @@ function Root({ route, navigation }) {
             {() => <LoginScreen setAuthenticated={route.params?.setAuthenticated} />}
           </Drawer.Screen>
           <Drawer.Screen name="Elveszett" component={Proba2} />
-          
         </>
       )}
     </Drawer.Navigator>
