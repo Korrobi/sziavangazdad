@@ -38,14 +38,23 @@ const LoginScreen = ({ setAuthenticated }) => {
         felhasznalo_nev,
         felhasznalo_jelszo,
       });
-      
-
+  
       console.log('Successful login', response.data);
       const felhasznaloId = response.data.felhasznaloId;
-      await AsyncStorage.setItem('felhasznaloId', felhasznaloId);
-      
-      AsyncStorage.setItem('rememberMe', JSON.stringify(rememberMe));
-
+  
+      // Check if felhasznaloId is not null before proceeding
+      if (felhasznaloId !== null) {
+        await AsyncStorage.setItem('felhasznaloId', felhasznaloId.toString());
+        console.log(felhasznaloId);
+        // Save the rememberMe state to AsyncStorage
+        await AsyncStorage.setItem('rememberMe', JSON.stringify(rememberMe));
+      } else {
+        // Handle the case when felhasznaloId is null
+        console.error('FelhasznaloId is null');
+        Alert.alert('Hiba', 'Helytelen felhasználónév vagy jelszó.');
+        return;
+      }
+  
       const userToken = response.data.token;
       Alert.alert('Sikeres Bejelentkezés', '', [
         {
@@ -54,7 +63,7 @@ const LoginScreen = ({ setAuthenticated }) => {
             if (setAuthenticated) {
               setAuthenticated(true);
             }
-            
+  
             navigation.dispatch(
               CommonActions.navigate({
                 name: 'Root',
