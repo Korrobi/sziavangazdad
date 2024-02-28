@@ -92,6 +92,11 @@ export default function App() {
           component={RegisterScreen}
           initialParams={{ setAuthenticated }}
         />
+        <Stack.Screen
+          name="Regisztráció Menhelyként"
+          component={FelvitelAdam}
+          initialParams={{ setAuthenticated }}
+        />
         <Stack.Screen name="Ujlap" component={Ujlap} />
         <Stack.Screen name="Ujlapfelhasznalo" component={Ujlapfelhasznalo} />
         <Stack.Screen name='Orokbefogadasfelulet' component={Orokbefogadasfelulet}/>

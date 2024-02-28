@@ -80,7 +80,7 @@ const LoginScreen = ({ setAuthenticated }) => {
   };
 
   const handleNavigateToRegister = () => {
-    navigation.navigate('Register');
+    navigation.navigate('Regisztráció');
     setAuthenticated(false);
   };
 

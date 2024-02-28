@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Alert, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import Ipcim from './Ipcim';
@@ -40,6 +40,10 @@ const RegisterScreen = ({ setAuthenticated }) => {
       Alert.alert('Hiba', 'Hiba a regisztráció során.');
     }
   };
+  const handleNavigateToRegister = () => {
+    navigation.navigate('Regisztráció Menhelyként');
+    setAuthenticated(false);
+  };
 
   return (
     <View style={styles.container}>
@@ -75,6 +79,12 @@ const RegisterScreen = ({ setAuthenticated }) => {
         style={styles.input}
       />
       <Button title="Regisztráció" onPress={handleRegister} />
+      <View style={styles.registerContainer}>
+        <Text>Menhely vagy? </Text>
+        <TouchableOpacity onPress={handleNavigateToRegister}>
+          <Text style={styles.registerText}>Regisztrálj Menhelyként</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -100,6 +110,15 @@ const styles = StyleSheet.create({
     width: '80%',
     paddingHorizontal: 10,
   },
+  registerContainer: {
+      flexDirection: 'row',
+      marginTop: 10,
+    },
+    registerText: {
+      color: 'orange',
+      fontWeight: 'bold',
+    },
+ 
 });
 
 export default RegisterScreen;
