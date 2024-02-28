@@ -125,7 +125,7 @@ const Ujlapfelhasznalo = ({route, navigation}) => {
     )
     }
     
-    <Button onPress={() => navigation.navigate('Getesorokbefogadas')} title="Vissza a profilokhoz"/>  
+    <Button onPress={() => navigation.navigate('Felhasználók')} title="Vissza a Felhasználókhoz"/>  
   </View>
   );
 };

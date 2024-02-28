@@ -81,7 +81,7 @@ const Ujlap = ({route, navigation}) => {
       />
       
     )}
-    <Button onPress={() => navigation.navigate('Kozosscreen')} title="Vissza a v�laszt� fel�letre!" />  
+    <Button onPress={() => navigation.navigate('Megyék Menhely Keresés')} title="Vissza a v�laszt� fel�letre!" />  
   </View>
   );
 };

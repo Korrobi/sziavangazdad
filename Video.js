@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, FlatList, Text, View, Image} from 'react-native';
+import {ActivityIndicator, FlatList, Text, View, Image,Dimensions} from 'react-native';
 import { WebView } from 'react-native-webview';
 
 const Video = () => {
@@ -34,7 +34,9 @@ const Video = () => {
       )}
 
       <WebView 
-      style={{height:50,width:450, alignSelf: 'center'}}
+       
+      style={{flex: 1, width: '100%', height: '100%', alignSelf: 'center', margin:10, paddingTop:100, marginBottom:100}}
+      allowsFullscreenVideo
       source={{ uri: 'https://www.youtube.com/embed/JjmVg24EYeU?si=SwHl0Ix6EVp5VjdQ' }}
          />
     </View>

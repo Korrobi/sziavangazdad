@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { Button, Image, View, Text, TextInput, Platform } from 'react-native';
+import { Button, Image, View, Text, TextInput, Platform, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import {Picker} from '@react-native-picker/picker';
 import Ipcim from './Ipcim';
@@ -55,7 +55,7 @@ export default function ImagePickerExample() {
         return;
       }
 
-      const response = await fetch(`${SERVER_URL}api/upload`, {
+      const response = await fetch(Ipcim.Ipcim+`/api/upload`, {
         method: 'POST',
         body: createFormData(image,{ bevitel1,bevitel2,bevitel3,bevitel4,selectedTelepules}),
 
@@ -67,9 +67,21 @@ export default function ImagePickerExample() {
       if (!response.ok) {
         throw new Error('Network request failed');
       }
-
+      
       const data = await response.json();
-      console.log('response', data);
+        console.log('response', data);
+        console.log('Sikeres regisztráció', response.data);
+        Alert.alert('Sikeres regisztráció', '', [
+          {
+            text: 'OK',
+            onPress: () => {
+              setAuthenticated(false);
+              navigation.navigate('Regisztráció');
+            },
+          },
+        ]);
+    
+      
     } catch (error) {
       console.log('error', error.message);
     }

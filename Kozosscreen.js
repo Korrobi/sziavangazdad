@@ -38,7 +38,7 @@ const Kozosscreen= ({navigation}) => {
                 </Text>
               </View>
             <View style={{flex:3}}>
-                <Button  onPress={() => navigation.navigate('Ujlap', {atkuld1:item.telepules_id,atkuld2:item.telepules_nev})} title="R�szletek" />
+                <Button  onPress={() => navigation.navigate('Megye Menhelyei', {atkuld1:item.telepules_id,atkuld2:item.telepules_nev})} title="R�szletek" />
             </View>
             
         

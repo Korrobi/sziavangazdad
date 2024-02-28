@@ -38,7 +38,7 @@ const Getesorokbefogadas = ({ navigation }) => {
               {item.felhasznalo_teljesnev}
             </Text>
             <View style={{width:200,marginLeft:80,marginRight:80}}>
-                <Button  onPress={() => navigation.navigate('Ujlapfelhasznalo', {atkuld11:item.felhasznalok_id,atkuld12:item.felhasznalo_teljesnev})} title="Felhasznalo megtek�nt�se" />
+                <Button  onPress={() => navigation.navigate('Profil', {atkuld11:item.felhasznalok_id,atkuld12:item.felhasznalo_teljesnev})} title="Felhasználó profil megtekintése" />
             </View>
 
                 

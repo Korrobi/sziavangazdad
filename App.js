@@ -50,9 +50,9 @@ function Root({ route, navigation }) {
           <Drawer.Screen name="Elveszett Jelentés" component={Felvitel} />
           <Drawer.Screen name="Elveszett" component={Proba2} />
           {/*Ádám*/}
-          <Drawer.Screen name='FelvitelA' component={FelvitelAdam}/>
-          <Drawer.Screen name='KozosscreenA' component={Kozosscreen}/>
-          <Drawer.Screen name='GetesorokbefogadasA' component={Getesorokbefogadas}/>
+          
+          <Drawer.Screen name='Megyék Menhely Keresés' component={Kozosscreen}/>
+          <Drawer.Screen name='Felhasználók' component={Getesorokbefogadas}/>
           <Drawer.Screen name="Logout">
             {() => (
               <Logout setAuthenticated={route.params?.setAuthenticated} />
@@ -97,8 +97,8 @@ export default function App() {
           component={FelvitelAdam}
           initialParams={{ setAuthenticated }}
         />
-        <Stack.Screen name="Ujlap" component={Ujlap} />
-        <Stack.Screen name="Ujlapfelhasznalo" component={Ujlapfelhasznalo} />
+        <Stack.Screen name="Megye Menhelyei" component={Ujlap} />
+        <Stack.Screen name="Profil" component={Ujlapfelhasznalo} />
         <Stack.Screen name='Orokbefogadasfelulet' component={Orokbefogadasfelulet}/>
       </Stack.Navigator>
     </NavigationContainer>
