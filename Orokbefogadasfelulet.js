@@ -55,12 +55,12 @@ const Orokbefogadasfelulet = ({ route, navigation }) => {
         //console.log(result);
         // Kezeld itt a v?laszt, ha sz?ks?ges
       } catch (error) {
-        console.error('Hiba t?rt?nt az ?r?kbefogad?s sor?n:', error);
+        console.error('Hiba történt az örökbefogadás során!:', error);
       }
       //console.log(result);
       // Kezeld itt a v?laszt, ha sz?ks?ges
     } catch (error) {
-      console.error('Hiba t?rt?nt az ?r?kbefogad?s sor?n:', error);
+      console.error('Hiba történt az örökbefogadás során!:', error);
     }
   };
 
@@ -101,7 +101,7 @@ const Orokbefogadasfelulet = ({ route, navigation }) => {
           )}
         />
       )}
-      <Button onPress={kattintas} title="�r�kbefogadom!" />
+      <Button onPress={kattintas} title="Örökbefogadom!" />
     </View>
   );
 };

@@ -76,7 +76,7 @@ export default function ImagePickerExample() {
             text: 'OK',
             onPress: () => {
               setAuthenticated(false);
-              navigation.navigate('Regisztráció');
+              navigation.navigate('Regisztracio');
             },
           },
         ]);
@@ -108,7 +108,7 @@ export default function ImagePickerExample() {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     
     <Text style={{padding: 10}}>
-      N�v:
+      Név:
       </Text>
       <TextInput
         style={{height: 40,width:250, margin:5, backgroundColor:"cyan"}}
@@ -125,7 +125,7 @@ export default function ImagePickerExample() {
       />
       
       <Text style={{padding: 10}}>
-      Telefonsz�m:
+      Telefonszám:
       </Text>
       <TextInput
         style={{height: 40,width:250, margin:5, backgroundColor:"cyan"}}
@@ -134,7 +134,7 @@ export default function ImagePickerExample() {
       />
       
       <Text style={{padding: 10}}>
-      C�m:
+      Cím:
       </Text>
       <TextInput
         style={{height: 40,width:250, margin:5, backgroundColor:"cyan"}}
@@ -164,8 +164,8 @@ export default function ImagePickerExample() {
       </Picker>
       </View>
 
-      <Button title="K�p felt�lt�s" onPress={handleUploadPhoto} />
-      <Button title="K�pv�laszt�s" onPress={pickImage} />
+      <Button title="Regisztrálok!" onPress={handleUploadPhoto} />
+      <Button title="Kép kiválasztása" onPress={pickImage} />
       {image && <Image source={{ uri: image.uri }} style={{ width: 300, height: 300 }} />}
 
     </View>

@@ -57,7 +57,7 @@ const Ujlapfelhasznalo = ({route, navigation}) => {
         </View>
         
         <View style={{borderBottomColor:'blue',borderBottomWidth:7,borderBottomStartRadius:12,borderBottomEndRadius:12}}>
-        <Text style={{fontSize:28,fontWeight:'bold'}}>El�rhetQs�gek: </Text>
+        <Text style={{fontSize:28,fontWeight:'bold'}}>Elérhetőségek: </Text>
         <View>
           <Text style={{fontSize:23,fontStyle:'italic'}}>
           Telefon:
@@ -106,7 +106,7 @@ const Ujlapfelhasznalo = ({route, navigation}) => {
                   </View>
                   <View>
                     {item.allatok_orokbefogadas === 0    ?
-                    <Button onPress={() => navigation.navigate('Orokbefogadasfelulet', {atkuld21:item.allatok_id,atkuld22:item.felhasznalok_id})} title="�r�kbefogad�s!"/>
+                    <Button onPress={() => navigation.navigate('Orokbefogadasfelulet', {atkuld21:item.allatok_id,atkuld22:item.felhasznalok_id})} title="Örökbefogadás!"/>
                     : 
                     ""
                     }
